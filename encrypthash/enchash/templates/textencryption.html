@@ -1,0 +1,107 @@
+<div class="col-10 mybg2">
+    <h1 class="text-center mycol">Text Encryption</h1>
+    <br>
+    <div class="container py-4">
+        <div class="row">
+
+
+            <div class="col-4 text-white text-center p-4">
+                <div class="card mybgcol m-3 p-4 sidecards" id="encDIV">
+                    <div class="card-body">
+                        <b>ENCRYPTION</b>
+                    </div>
+                </div>
+                <div class="card mybg m-3 p-4 sidecards" id="decDIV">
+                    <div class="card-body">
+                    <b>DECRYPTION</b>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-8 p-4">
+
+                <div class="container text-white" id="encryptiondiv">
+                    <div class="mb-3">
+                        <label class="form-label mycol">Original String</label>
+                        <textarea class="form-control text-white bg-dark" id="inputString" rows="3" placeholder="Your String"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="encryptionNormal" name="encryptionNormal" checked>
+                            <label class="form-check-label" for="encryptionNormal">Normal Encryption</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="changeVowels" name="changeVowels">
+                            <label class="form-check-label" for="changeVowels">Change Vowels</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="numberOperation" name="numberOperation">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <select name="numberOperationvalue" id="numberOperationvalue" class="form-control bg-dark text-white">
+                                        <option value="ILV">Increment each Letter by :</option>
+                                        <option value="DLV">Decrement each Letter by :</option>
+                                        <option value="MLV">Multiply each Letter by :</option>
+                                      </select>
+                                </div>
+                                <div class="col-sm">
+                                    <input class="form-control bg-dark text-white" type="number" id="letterValue" name="letterValue" value="1">
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="d-grid">
+                            <button type="button" id="selfEncryption" class="btn btn-outline-info"> Encrypt</button>
+                        </div>
+                        <br>
+                        <div class="mb-3" id="keyStringdiv" style="display: none;">
+                            <label class="form-label mycol" for="keyString" class="mylabel">Your Key</label>
+                            <textarea class="form-control text-white bg-dark" id="keyString" placeholder="Your Key" rows="3" readonly></textarea>
+                        </div>
+                        <div class="mb-3" id="hashedStringdiv" style="display: none;">
+                            <label class="form-label mycol" for="hashedString" class="mylabel">Encrypted String</label>
+                            <textarea class="form-control text-white bg-dark" id="hashedString" placeholder="Your Encrypted String" rows="3" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- decryption wala div -->
+
+                <div class="container text-white" id="decryptiondiv" style="display: none;">
+                    <div class="mb-3">
+                        <label class="form-label mycol">Encrypted String</label>
+                        <textarea class="form-control text-white bg-dark" id="encryptedString" rows="3" placeholder="Your encrypted string"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label mycol" for="keyString" class="mylabel">Your Key</label>
+                        <textarea class="form-control text-white bg-dark" id="inputkey" placeholder="Your Key" rows="3"></textarea>
+                    </div>
+
+                   
+
+                    <div class="mb-3">
+                        <div class="d-grid">
+                            <button type="button" id="selfDecryption" class="btn btn-outline-info"> Decrypt</button>
+                        </div>
+                        <br>
+                        
+                        <div class="mb-3">
+                            <label class="form-label mycol" for="hashedString" class="mylabel">Original String</label>
+                            <textarea class="form-control text-white bg-dark" id="decryptedStringValue" placeholder="Your Encrypted String" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,195 @@
+<div class="col-10 mybg2">
+    <h1 class="text-center mycol">Clubbing Algos</h1>
+    <br>
+    <div class="container py-4">
+        <div class="row">
+
+
+            <div class="col-4 text-white text-center p-4">
+                <div class="card mybgcol m-3 p-4 sidecards" id="encDIV">
+                    <div class="card-body">
+                        <b>ENCRYPTION</b>
+                    </div>
+                </div>
+                <div class="card mybg m-3 p-4 sidecards" id="decDIV">
+                    <div class="card-body">
+                    <b>DECRYPTION</b>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-8 p-4">
+
+                <div class="container text-white" id="encryptiondiv">
+                    <div class="mb-3">
+                        <label class="form-label mycol">Original String</label>
+                        <textarea class="form-control text-white bg-dark" id="inputString" rows="3" placeholder="Your String"></textarea>
+                    </div>
+                    <div class="mb-3" id="keyStringdiv">
+                        <label class="form-label mycol" for="keyString" class="mylabel">Your Key</label>
+                        <input type="text" class="form-control text-white bg-dark" id="keyString" placeholder="Your Key" >
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="algo1" name="algo1" checked>
+                                    <label class="form-check-label" for="algo1">AES</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="algo2" name="algo2">
+                                    <label class="form-check-label" for="algo2">BLOWFISH</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="algo3" name="algo3" checked>
+                                    <label class="form-check-label" for="algo3">ARCFOUR</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="algo4" name="algo4">
+                                    <label class="form-check-label" for="algo4">CAMELLIA</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="algo5" name="algo5">
+                                    <label class="form-check-label" for="algo5">CAST</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="algo6" name="algo6" checked>
+                                    <label class="form-check-label" for="algo6">IDEA</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="algo7" name="algo7" checked>
+                                    <label class="form-check-label" for="algo7">DES</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="algo8" name="algo8">
+                                    <label class="form-check-label" for="algo8">TRIPLEDES</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+
+                    
+
+                    <div class="mb-3">
+                        <div class="d-grid">
+                            <button type="button" id="selfEncryption" class="btn btn-outline-info"> Encrypt</button>
+                        </div>
+                        <br>
+                        
+                        <div class="mb-3" id="hashedStringdiv" style="display: none;">
+                            <label class="form-label mycol" for="hashedString" class="mylabel">Encrypted String</label>
+                            <textarea class="form-control text-white bg-dark" id="hashedString" placeholder="Your Encrypted String" rows="3" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- decryption wala div -->
+
+                <div class="container text-white" id="decryptiondiv" style="display: none;">
+                    <div class="mb-3">
+                        <label class="form-label mycol">Encrypted String</label>
+                        <textarea class="form-control text-white bg-dark" id="encryptedString" rows="3" placeholder="Your encrypted string"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label mycol" for="keyString" class="mylabel">Your Key</label>
+                        <input class="form-control text-white bg-dark" id="key" placeholder="Your Key" type="text">
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="decalgo1" name="decalgo1" checked>
+                                    <label class="form-check-label" for="decalgo1">AES</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="decalgo2" name="decalgo2">
+                                    <label class="form-check-label" for="decalgo2">BLOWFISH</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="decalgo3" name="decalgo3" checked>
+                                    <label class="form-check-label" for="decalgo3">ARCFOUR</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="decalgo4" name="decalgo4">
+                                    <label class="form-check-label" for="decalgo4">CAMELLIA</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="decalgo5" name="decalgo5">
+                                    <label class="form-check-label" for="decalgo5">CAST</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="decalgo6" name="decalgo6" checked>
+                                    <label class="form-check-label" for="decalgo6">IDEA</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="decalgo7" name="decalgo7" checked>
+                                    <label class="form-check-label" for="decalgo7">DES</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="decalgo8" name="decalgo8">
+                                    <label class="form-check-label" for="decalgo8">TRIPLEDES</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+
+                    <div class="mb-3">
+                        <div class="d-grid">
+                            <button type="button" id="selfDecryption" class="btn btn-outline-info"> Decrypt</button>
+                        </div>
+                        <br>
+                        
+                        <div class="mb-3" id="originalwaladiv" style="display:none;">
+                            <label class="form-label mycol" for="hashedString" class="mylabel" >Original String</label>
+                            <textarea class="form-control text-white bg-dark" id="decryptedStringValue" placeholder="Your Encrypted String" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
