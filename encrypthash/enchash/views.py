@@ -3,8 +3,9 @@ from django.views.decorators.csrf import csrf_exempt
 from enchash.selfalgo import *
 from enchash.clubbing import *
 import json
-
-
+from enchash.static.imagecrypto.rubikencryptor.rubikencryptor import RubikCubeCrypto
+from PIL import Image
+from django.conf.urls.static import static
 # base 1
 
 def home(request):
@@ -25,14 +26,48 @@ def urlMe(request):
 
 
 @csrf_exempt
+def imageenc(request):
+    if request.method == 'POST':
+
+        body_data = request.body.decode("utf-8")
+        bodydata = json.loads(body_data)
+        inputImg = "C:\\Users\\vg123\\OneDrive\\Pictures\\"+bodydata["inputImage"]
+        print(inputImg)
+
+        print("--------------")
+
+        key = bodydata["inputImageKey"]
+        output_image = "C:\\Users\\vg123\\OneDrive\\Documents\\GITTU\\EncHash\\encrypthash\\enchash\\static\\imagecrypto\\example\\enc_"+bodydata["inputImage"]
+        # output_image = "http://127.0.0.1:8000/static/imagecrypto/example/encryption.png"
+        # output_image = static(output_img)
+        image = inputImg
+        input_image = Image.open(image)
+        rubixCrypto = RubikCubeCrypto(input_image)
+        print(key)
+
+        print(output_image)
+
+        encrypted_image = rubixCrypto.encrypt(alpha=8, iter_max=10, key_filename=key)
+        print("Working here")
+        encrypted_image.save(output_image)
+
+
+
+
+        return HttpResponse(output_image)
+    return render(request, "base.html", {})
+
+
+
+@csrf_exempt
 def clubbingalgos(request):
     context = {}
     if request.method == 'POST':
         body_data = request.body.decode("utf-8")
         bodydata = json.loads(body_data)
-
         inputString = bodydata["inputString"]
-        inputKey = bodydata["inputString"]
+        inputString = bodydata["inputString"]
+        inputKey = bodydata["inputKey"]
         algo1 = bodydata["algo1"]
         algo2 = bodydata["algo2"]
         algo3 = bodydata["algo3"]
@@ -41,9 +76,8 @@ def clubbingalgos(request):
         algo6 = bodydata["algo6"]
         algo7 = bodydata["algo7"]
         algo8 = bodydata["algo8"]
-
         a = encryption(inputKey, inputString, algo1, algo2, algo3, algo4, algo5, algo6, algo7, algo8)
-        # print(a)
+        print(a)
         return HttpResponse(a)
     return render(request, "base.html", context)
 
@@ -53,7 +87,6 @@ def clubbingalgosdec(request):
     if request.method == 'POST':
         body_data = request.body.decode("utf-8")
         bodydata = json.loads(body_data)
-
         inputString = bodydata["encryptedString"]
         inputKey = bodydata["inputkey"]
         algo1 = bodydata["algo1"]
@@ -64,9 +97,11 @@ def clubbingalgosdec(request):
         algo6 = bodydata["algo6"]
         algo7 = bodydata["algo7"]
         algo8 = bodydata["algo8"]
-
-        a = decryption(inputKey, inputString, algo1, algo2, algo3, algo4, algo5, algo6, algo7, algo8)
-        # print(a)
+        a = "encrypted string dummy"
+        try:
+            a = decryption(inputKey, inputString, algo1, algo2, algo3, algo4, algo5, algo6, algo7, algo8)
+        except Exception as e:
+            print("\n")
         return HttpResponse(a)
     return render(request, "base.html", context)
 

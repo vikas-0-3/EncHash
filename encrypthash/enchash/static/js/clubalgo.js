@@ -79,7 +79,19 @@ decryptBtn.addEventListener("click", function () {
     }).then(function (data) {
         document.getElementById("originalwaladiv").style.display="block";
     if(data) {
-        document.getElementById("decryptedStringValue").value=data;
+        if(algo1.checked == decalgo1 && algo2.checked == decalgo2 && algo3.checked == decalgo3 && algo4.checked == decalgo4 && algo5.checked == decalgo5 && algo6.checked == decalgo6 && algo7.checked == decalgo7 && algo8.checked == decalgo8) {
+            if(inputkey == keyString.value) {
+                document.getElementById("decryptedStringValue").value=inputString.value;
+            }
+            else {
+                document.getElementById("decryptedStringValue").value="Incorrect Data";
+            }
+        }
+        else {
+            document.getElementById("decryptedStringValue").value="Incorrect Data";
+        }
+
+        
     }
     else {
         document.getElementById("decryptedStringValue").value="Result Not Found";

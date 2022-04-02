@@ -14,6 +14,8 @@ urlpatterns = [
     path('clubbingalgos', views.clubbingalgos, name="clubbingalgos"),
     path('clubbingalgosdec', views.clubbingalgosdec, name="clubbingalgosdec"),
 
+    path('imageenc', views.imageenc, name="imageenc"),
+
 ]
 
 

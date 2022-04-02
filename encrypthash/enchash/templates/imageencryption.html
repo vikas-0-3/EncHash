@@ -1,3 +1,84 @@
 <div class="col-10 mybg2">
-    <h1 class="text-center text-white">Image Encryption</h1>
+    <h1 class="text-center mycol">Image Encryption</h1>
+    <br>
+    <div class="container py-4">
+        <div class="row">
+
+
+            <div class="col-4 text-white text-center p-4">
+                <div class="card mybgcol m-3 p-4 sidecards" id="encDIV">
+                    <div class="card-body">
+                        <b>ENCRYPTION</b>
+                    </div>
+                </div>
+                <div class="card mybg m-3 p-4 sidecards" id="decDIV">
+                    <div class="card-body">
+                    <b>DECRYPTION</b>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-8 p-4">
+
+                <div class="container text-white" id="encryptiondiv">
+                    <div class="mb-3">
+                        <label class="form-label mycol">Original Image</label>
+                        <input type="file" class="form-control text-white bg-dark" id="inputfile" name="inputfile">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label mycol" for="keyString" class="mylabel">Your Key</label>
+                        <textarea class="form-control text-white bg-dark" id="inputImageKey" placeholder="Your Key" rows="3"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="d-grid">
+                            <button type="button" id="selfEncryption" class="btn btn-outline-info"> Encrypt</button>
+                        </div>
+                        <br>
+                        
+                        <div class="mb-3" id="hashedImagediv" style="display: none;">
+                            <label class="form-label mycol" for="hashedString" class="mylabel">Encrypted Image</label>
+                            {% load static %}
+                            <a download href="#" title="Click to download"><img src="http://127.0.0.1:8000/static/imagecrypto/example/enc_Mynotes.png" height="200" width="200" id="encimage"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- decryption wala div -->
+
+                <div class="container text-white" id="decryptiondiv" style="display: none;">
+                    <div class="mb-3">
+                        <label class="form-label mycol">Encrypted Image</label>
+                        <input type="file" class="form-control text-white bg-dark" id="encryptedfile" name="encryptedfile">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label mycol" for="keyString" class="mylabel">Your Key</label>
+                        <textarea class="form-control text-white bg-dark" id="inputkey" placeholder="Your Key" rows="3"></textarea>
+                    </div>
+
+                   
+
+                    <div class="mb-3">
+                        <div class="d-grid">
+                            <button type="button" id="selfDecryption" class="btn btn-outline-info"> Decrypt</button>
+                        </div>
+                        <br>
+                        
+                        <div class="mb-3" id="hashedImagediv" style="display: none;">
+                            <label class="form-label mycol" for="hashedString" class="mylabel">Original Image</label>
+                            {% load static %}
+                            <a download href="#" title="Click to download"><img src="http://127.0.0.1:8000/static/imagecrypto/example/enc_abc.png" height="200" width="200" id="encimage"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
 </div>
